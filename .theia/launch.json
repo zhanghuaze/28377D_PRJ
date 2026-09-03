@@ -1,0 +1,56 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "28377d_driverlib_PRJ",
+      "type": "ccs-debug",
+      "request": "launch",
+      "projectInfo": {
+        "name": "28377d_driverlib_PRJ",
+        "resourceId": "/28377d_driverlib_PRJ"
+      },
+      "connections": [
+        {
+          "name": "Texas Instruments XDS2xx USB Debug Probe",
+          "cores": [
+            {
+              "name": "C28xx_CPU1",
+              "debuggerSettings": {
+                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+              }
+            }
+          ]
+        }
+      ],
+      "launchSettings": {
+        "coresToLoadForProjectLaunch": [
+          "C28xx_CPU1"
+        ]
+      }
+    },
+    {
+      "name": "28377d_driverlib_PRJ (1)",
+      "type": "ccs-debug",
+      "request": "launch",
+      "projectInfo": {
+        "name": "28377d_driverlib_PRJ",
+        "resourceId": "/28377d_driverlib_PRJ/__ccs_3_compilerIncludes"
+      },
+      "connections": [
+        {
+          "name": "Texas Instruments XDS2xx USB Debug Probe",
+          "cores": [
+            {
+              "name": "C28xx_CPU1",
+              "debuggerSettings": {
+                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

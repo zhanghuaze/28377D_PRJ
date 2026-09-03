@@ -1,0 +1,6 @@
+"./main.obj"
+"./device/F2837xD_CodeStartBranch.obj"
+"./device/device.obj"
+"../driverlib_eabi.lib"
+"../cmd/2837xD_RAM_lnk_cpu1.cmd"
+-llibc.a
