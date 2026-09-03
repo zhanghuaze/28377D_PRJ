@@ -1,0 +1,19 @@
+# CCS编译输出
+Debug/
+Release/
+*.out
+*.obj
+*.lst
+*.map
+*.hex
+*.cof
+
+# CCS工程本地缓存
+.metadata/
+*.launch
+*.ccsproject.user*
+.dvt/
+
+# Windows
+Thumbs.db
+.DS_Store
