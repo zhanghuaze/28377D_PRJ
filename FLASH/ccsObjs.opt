@@ -1,4 +1,6 @@
-"./main.obj"
+"./APP/main.obj"
+"./BSP/BSP_IO.obj"
+"./BSP/BSP_SCI.obj"
 "./device/F2837xD_CodeStartBranch.obj"
 "./device/device.obj"
 "../driverlib_eabi.lib"

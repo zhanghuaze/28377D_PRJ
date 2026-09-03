@@ -10,7 +10,9 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./main.obj" \
+"./APP/main.obj" \
+"./BSP/BSP_IO.obj" \
+"./BSP/BSP_SCI.obj" \
 "./device/F2837xD_CodeStartBranch.obj" \
 "./device/device.obj" \
 "../driverlib_eabi.lib" \
@@ -26,9 +28,13 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include APP/subdir_vars.mk
+-include BSP/subdir_vars.mk
 -include cmd/subdir_vars.mk
 -include device/subdir_vars.mk
 -include subdir_rules.mk
+-include APP/subdir_rules.mk
+-include BSP/subdir_rules.mk
 -include cmd/subdir_rules.mk
 -include device/subdir_rules.mk
 -include objects.mk
@@ -134,15 +140,15 @@ all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Tool invocations
 28377d_driverlib_PRJ.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'C2000 Linker - building target: "$@"'
-	"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-c2000_25.11.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -O2 --define=_FLASH --define=CPU1 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"28377d_driverlib_PRJ.map" --stack_size=0x200 --warn_sections -i"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-c2000_25.11.1.LTS/lib" -i"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-c2000_25.11.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="28377d_driverlib_PRJ_linkInfo.xml" --rom_model -o "28377d_driverlib_PRJ.out" $(ORDERED_OBJS)
+	"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-c2000_25.11.1.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --define=_FLASH --define=CPU1 --define=__TMS320C28XX__ --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"28377d_driverlib_PRJ.map" --stack_size=0x200 --warn_sections -i"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-c2000_25.11.1.LTS/lib" -i"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-c2000_25.11.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="28377d_driverlib_PRJ_linkInfo.xml" --rom_model -o "28377d_driverlib_PRJ.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "device\F2837xD_CodeStartBranch.obj" "device\device.obj" 
-	-$(RM) "main.d" "device\device.d" 
+	-$(RM) "APP\main.obj" "BSP\BSP_IO.obj" "BSP\BSP_SCI.obj" "device\F2837xD_CodeStartBranch.obj" "device\device.obj" 
+	-$(RM) "APP\main.d" "BSP\BSP_IO.d" "BSP\BSP_SCI.d" "device\device.d" 
 	-$(RM) "device\F2837xD_CodeStartBranch.d" 
 	-@echo ' '
 
